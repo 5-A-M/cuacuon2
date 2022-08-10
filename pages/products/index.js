@@ -11,8 +11,6 @@ const Products = ({ data }) => {
       <Head>
         <title>Sản phẩm</title>
       </Head>
-      {console.log(data)}
-      {console.log(111)}
       <Header />
       <Navigation />
       <Wrapper />
@@ -47,11 +45,3 @@ const Wrapper = (props) => {
     </div>
   );
 };
-
-export async function getServerSideProps() {
-  const res = await fetch(`http://localhost:4000/api/v1/get/cuacuon`);
-  const data = await res.json();
-  return {
-    props: { data },
-  };
-}

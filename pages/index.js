@@ -9,7 +9,7 @@ import ProcessWay from "./components/ProcessWay"
 import ListProducts from "./components/ListProducts"
 import SpecificProduct from "./components/SpecificProduct"
 
-const Home = (props)=> {
+const Home = ({ data })=> {
   return (
     <div className="daklajksajse9wea" style={{width: "100%"}}>
       <Head>
@@ -34,3 +34,10 @@ const Home = (props)=> {
 }
 
 export default Home
+export async function getServerSideProps() {
+  const res = await fetch(`http://localhost:4000/api/v1/get/cuacuon`);
+  const data = await res.json();
+  return {
+    props: { data },
+  };
+}
