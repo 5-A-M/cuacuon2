@@ -8,6 +8,7 @@ import ChatMessenger from "./components/ChatMessenger"
 import ProcessWay from "./components/ProcessWay"
 import ListProducts from "./components/ListProducts"
 import SpecificProduct from "./components/SpecificProduct"
+import fetch from "node-fetch"
 
 const Home = ({ data })=> {
   return (
@@ -35,7 +36,7 @@ const Home = ({ data })=> {
 
 export default Home
 export async function getServerSideProps() {
-  const res = await fetch(`http://localhost:4000/api/v1/get/cuacuon`);
+  const res = await fetch(`http://[::1]:4000/api/v1/get/cuacuon`);
   const data = await res.json();
   return {
     props: { data },
