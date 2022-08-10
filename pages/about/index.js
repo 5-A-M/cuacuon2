@@ -1,4 +1,3 @@
-import React from 'react'
 import Header from '../components/Header'
 import Navigation from '../components/Navigation'
 import Head from "next/head"
@@ -11,6 +10,7 @@ const About = () => {
       </Head>
       <Header />
       <Navigation />
+      <div>Hello World</div>
     </div>
   )
 }

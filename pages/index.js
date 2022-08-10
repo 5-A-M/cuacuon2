@@ -8,7 +8,6 @@ import ChatMessenger from "./components/ChatMessenger"
 import ProcessWay from "./components/ProcessWay"
 import ListProducts from "./components/ListProducts"
 import SpecificProduct from "./components/SpecificProduct"
-import fetch from "node-fetch"
 
 const Home = ({ data })=> {
   return (
