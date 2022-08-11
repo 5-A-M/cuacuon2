@@ -4,6 +4,7 @@ import ListProducts from "../components/ListProducts";
 import Navigation from "../components/Navigation";
 import SpecificProduct from "../components/SpecificProduct";
 import Head from "next/head";
+import { SERVER_URL } from "../_app";
 
 const Products = ({ data }) => {
   return (
@@ -49,7 +50,7 @@ const Wrapper = (props) => {
 export async function getServerSideProps(context) {
   // console.log(context)
   const res = await axios({
-      url: `https://cuacuonserver.herokuapp.com/api/v1/get/cuacuon`,
+      url: `${SERVER_URL}/api/v1/get/cuacuon`,
       method: "GET",
   })
   const data = await res.data;

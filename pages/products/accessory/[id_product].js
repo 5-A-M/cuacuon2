@@ -4,7 +4,7 @@ import Navigation from "../../components/Navigation"
 import { SERVER_URL } from "../../_app"
 // import { useRouter } from "next/router"
 
-const DetailProduct= ({data})=> {
+const DetailAccessory= ({data})=> {
     return (
         <div className="djksajsaiowsjasasa" style={{width: "100%"}}>
             <Navigation />
@@ -13,12 +13,12 @@ const DetailProduct= ({data})=> {
     )
 }
 
-export default DetailProduct
+export default DetailAccessory
 
 export async function getServerSideProps(context) {
     // console.log(context)
     const res = await axios({
-        url: `${SERVER_URL}/api/v1/get/detail/door`,
+        url: `${SERVER_URL}/api/v1/get/detail/accessory`,
         method: "GET",
         responseType: "json",
         params: {

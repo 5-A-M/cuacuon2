@@ -7,6 +7,7 @@ import { AiOutlineClose } from "react-icons/ai"
 import axios from "axios";
 
 const UploadProducts= (props)=> {
+    const [category, setCategory]= useState(()=> "1")
     const [file, setFile]= useState(()=> [])
     const [fileDataUrl, setFileDataUrl]= useState(()=> [])
     const [name, setName]= useState(()=> "")
@@ -57,7 +58,8 @@ const UploadProducts= (props)=> {
                 lock,
                 hinge,
                 price,
-                photo: result.secure_url
+                photo: result.secure_url,
+                category
             }
         })
         const result2= await res2.data
@@ -95,7 +97,8 @@ const UploadProducts= (props)=> {
                 handCover,
                 lock,
                 lockBody,
-                photo: result.secure_url
+                photo: result.secure_url,
+                category
             }
         })
         const result2= await res2.data
@@ -107,10 +110,15 @@ const UploadProducts= (props)=> {
             <Title />
             <Navigation />
             <div className="fsjidoajsioujeiowaa" style={{padding: 10}}>
+                <select style={{padding: 16, borderRadius: 10, cursor: "pointer"}} onChange={(e)=> setCategory(parseInt(e.target.value))} className="Sjskdljsalksjadsas">
+                    <option style={{padding: 16, borderRadius: 10, cursor: "pointer"}} value={1}>Cửa thép vân gỗ</option>
+                    <option style={{padding: 16, borderRadius: 10, cursor: "pointer"}} value={2}>Cửa thép luxury</option>
+                    <option style={{padding: 16, borderRadius: 10, cursor: "pointer"}} value={3}>Phụ kiện cửa</option>
+                </select>
                 <div style={{margin: "16px 0", fontSize: 24}}>{postDoor=== true ? "Đăng sản phẩm cửa cuốn" : "Đăng sản phẩm phụ kiện"} <span onClick={()=> setPostDoor(prev=> !prev)} style={{fontSize: 16, color: "#2e89ff", cursor: "pointer"}}>Đổi</span></div>
                 <UploadImage file={file} fileDataUrl={fileDataUrl} setFile={setFile} setFileDataUrl={setFileDataUrl} />
                 {
-                    postDoor=== true &&
+                    category !== 3 &&
                     <>
                         <Input placeholder="Nhập tên sản phẩm" type="text" value={name} setValue={setName} title="Tên sản phẩm:"  />
                         <Input placeholder="Nhập mã sản phẩm" type="text" value={code} setValue={setCode} title="Mã sản phẩm:" />
@@ -131,7 +139,7 @@ const UploadProducts= (props)=> {
                     </> 
                 }
                 {
-                    postDoor=== false &&
+                    category === 3 &&
                     <>
                         <Input placeholder="Nhập tên sản phẩm" type="text" value={name} setValue={setName} title="Tên sản phẩm:"  />
                         <Input placeholder="Nhập loại khóa" type="text" value={type} setValue={setType} title="Loại khóa:" />

@@ -8,6 +8,7 @@ import ProcessWay from "./components/ProcessWay";
 import ListProducts from "./components/ListProducts";
 import SpecificProduct from "./components/SpecificProduct";
 import axios from "axios";
+import { SERVER_URL } from "./_app";
 
 const Home = ({ data }) => {
   return (
@@ -36,7 +37,7 @@ export default Home;
 
 export async function getServerSideProps(context) {
   // console.log(context)
-  const res = await axios.get(`https://cuacuonserver.herokuapp.com/api/v1/get/cuacuon`, {responseType: "json"});
+  const res = await axios.get(`${SERVER_URL}/api/v1/get/cuacuon`, {responseType: "json"});
   const data = await res.data;
   return {
     props: { data },
