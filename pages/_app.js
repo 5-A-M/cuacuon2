@@ -6,7 +6,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-export const SERVER_URL= "http://localhost:4000"
+export const SERVER_URL= "https://cuacuonserver.herokuapp.com"
 
 function MyApp({ Component, pageProps }) {
   return (
