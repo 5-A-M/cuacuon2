@@ -1,16 +1,17 @@
 import React, { Fragment } from 'react'
-import { useState } from 'react'
-import BreakLine from './BreakLine'
+// import { useState } from 'react'
+// import BreakLine from './BreakLine'
 import styles from "./ListProducts.module.sass"
 import Logo from './Logo'
 import MainList from './MainList'
+import { useRouter } from 'next/router'
 
 const ListProducts = (props) => {
   return (
     <div className="djslkjaksljasreaaw" style={{width: "100%", }}>
         <div className="jlkdajkurioujipeaw" style={{width: "100%", display: "flex", justifyContent: 'center'}}>
             <LeftSide />
-            <RightSide />
+            <RightSide {...props} />
         </div>
     </div> 
   )
@@ -88,7 +89,7 @@ export const RightSide= (props)=> {
     return (
         <div className="edjuaiwjasmsaewr4awa" style={{flex: "1 1 0", marginLeft: 16}}>
             <HightLightTitle hightLightTitle={"Sản phẩm nổi bật"} />
-            <MainList />
+            <MainList data={props} />
         </div>
     )
 }
@@ -104,12 +105,13 @@ export const HightLightTitle= (props)=> {
 
 
 export const ProductInfo= (props)=> {
+    const router= useRouter()
     return (
-        <div className="djskejakwjapwjqkpa" style={{width: props?.width, padding: 12, display: "flex", justifyContent: 'center', alignItems: "center"}}>
+        <div onClick={()=> router.push(`/products/door/${props._id}`)} className="djskejakwjapwjqkpa" style={{width: "20%", padding: 12, display: "flex", justifyContent: 'center', alignItems: "center", cursor: "pointer"}}>
             <div className="jkdjhskdueiokajasa" style={{width: "100%", display: "flex", justifyContent: 'center', alignItems: "center", flexDirection: "column", border: "1px solid #e7e7e7", borderRadius: 5}}>
-                <ImageProductInfo />
-                <TitleProductInfo />
-                <ContactProductInfo />
+                <ImageProductInfo {...props} />
+                <TitleProductInfo {...props} />
+                <ContactProductInfo {...props} />
             </div>
         </div>
     )
@@ -119,7 +121,8 @@ const ImageProductInfo= (props)=> {
     return (
         <div className="djshdjhskjawsioasa" style={{width: "100%", height: 350, padding: 10}}>
             <div className="fjkdjsioajwioawjkaw" style={{width: "100%", height: "100%", boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px"}}>
-                <img src="https://koffmann.vn//assets/thumbs/assets_uploads_images_sanpham_cua-thep-van-go-deluxe-kd-10_85087_233x352.jpg" alt="open" style={{width: "100%", maxHeight: "100%"}} />
+                {/* eslint-disable-next-line */}
+                <img src={props?.photo} alt="open" style={{width: "100%", maxHeight: "100%"}} />
             </div>
         </div>
     )
@@ -128,7 +131,7 @@ const ImageProductInfo= (props)=> {
 const TitleProductInfo= (props)=> {
     return (
         <div className="dfkdoalskjalakoskajs" style={{width: "100%", margin: "16px 0"}}>
-            <p className="djfksjd9eaweawrarse" style={{textAlign: "center"}}>Cửa thép vân gỗ KGV-41.01.03A</p>
+            <p className="djfksjd9eaweawrarse" style={{textAlign: "center"}}>{props.name} {props.code}</p>
         </div>
     )
 }
@@ -136,7 +139,7 @@ const TitleProductInfo= (props)=> {
 const ContactProductInfo= (props)=> {
     return (
         <div className="fjdiodujiosjaiowww" style={{width: "100%", margin: "20px 0"}}>
-            <p className='sjiodjisjaslkasasa' style={{textAlign: "center", color: "#c5241e", fontSize: 20, fontWeight: 600}}>Liên hệ</p>
+            <p className='sjiodjisjaslkasasa' style={{textAlign: "center", color: "#c5241e", fontSize: 20, fontWeight: 600}}>{props.price}</p>
         </div>
     )
 }

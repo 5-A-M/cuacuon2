@@ -1,20 +1,9 @@
 import { ProductInfo } from "./ListProducts"
 
-const MainList= ({data})=> {
+const MainList= (props)=> {
     return (
-        <div className="djsjaklsaqawawfdsad" style={{width: "100%", display: "flex", justifyContent: 'center', alignItems: "center", flexWrap: "wrap"}}>
-            <ProductInfo width={"calc(100% / 3)%"} />
-            <ProductInfo width={"calc(100% / 3)%"} />
-            <ProductInfo width={"calc(100% / 3)%"} />
-            <ProductInfo width={"calc(100% / 3)%"} />
-            <ProductInfo width={"calc(100% / 3)%"} />
-            <ProductInfo width={"calc(100% / 3)%"} />
-            <ProductInfo width={"calc(100% / 3)%"} />
-            <ProductInfo width={"calc(100% / 3)%"} />
-            <ProductInfo width={"calc(100% / 3)%"} />
-            <ProductInfo width={"calc(100% / 3)%"} />
-            <ProductInfo width={"calc(100% / 3)%"} />
-            <ProductInfo width={"calc(100% / 3)%"} />
+        <div className="djsjaklsaqawawfdsad" style={{width: "100%", display: "flex", alignItems: "center", flexWrap: "wrap"}}>
+            {props?.data?.data?.map((item, key)=> <ProductInfo key={key} {...item} width={"20%"} />)}
         </div>
     )
 }

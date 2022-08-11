@@ -6,7 +6,7 @@ const SpecificProduct = (props) => {
   return (
     <div className="djkldjaskujeiorwasa" style={{ width: "100%" }}>
       <Title />
-      <ListProduct width="20%" />
+      <ListProduct width="20%" {...props} />
     </div>
   );
 };
@@ -43,27 +43,14 @@ const ListProduct = (props) => {
       style={{
         width: "100%",
         display: "flex",
-        justifyContent: "center",
         alignItems: "center",
         flexWrap: "wrap",
         background: "#fff",
       }}
     >
-      <ProductInfo width={props?.width} />
-      <ProductInfo width={props?.width} />
-      <ProductInfo width={props?.width} />
-      <ProductInfo width={props?.width} />
-      <ProductInfo width={props?.width} />
-      <ProductInfo width={props?.width} />
-      <ProductInfo width={props?.width} />
-      <ProductInfo width={props?.width} />
-      <ProductInfo width={props?.width} />
-      <ProductInfo width={props?.width} />
-      <ProductInfo width={props?.width} />
-      <ProductInfo width={props?.width} />
-      <ProductInfo width={props?.width} />
-      <ProductInfo width={props?.width} />
-      <ProductInfo width={props?.width} />
+      {
+        props?.data?.map((item, key)=> <ProductInfo key={key} width={"20%"} {...item} />)
+      }
     </div>
   );
 };

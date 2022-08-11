@@ -45,3 +45,16 @@ const Wrapper = (props) => {
     </div>
   );
 };
+
+export async function getServerSideProps(context) {
+  // console.log(context)
+  const res = await axios({
+      url: `https://cuacuonserver.herokuapp.com/api/v1/get/cuacuon`,
+      method: "GET",
+  })
+  const data = await res.data;
+  return {
+    props: { data },
+  };
+}
+
