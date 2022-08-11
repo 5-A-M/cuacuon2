@@ -53,7 +53,7 @@ export default Navigation
 const ContentLink= (props)=> {
     const [open, setOpen]= useState(()=> false)
     return (
-        <p className="djiljaiosjasas" onMouseEnter={()=> (parseInt(props.index) === 5 || parseInt(props.index) === 6 || parseInt(props.index) === 7) && setOpen(()=> true)} onMouseLeave={()=> setOpen(()=> false)} style={{color: props.router.pathname=== props.link ? "#2e89ff" : "#fff", fontSize: 18, height: "60px", display: "flex", justifyContent: "center", alignItems: "center", position: "relative"}}><span style={{border: "1px solid #fff", padding: "4px 12px", borderRadius: 80, position: "relative"}}>{props.text}</span>
+        <p className="djiljaiosjasas" onMouseEnter={()=> (parseInt(props.index) === 4 || parseInt(props.index) === 5 || parseInt(props.index) === 6) && setOpen(()=> true)} onMouseLeave={()=> setOpen(()=> false)} style={{color: props.router.pathname=== props.link ? "#2e89ff" : "#fff", fontSize: 18, height: "60px", display: "flex", justifyContent: "center", alignItems: "center", position: "relative"}}><span style={{border: "1px solid #fff", padding: "4px 12px", borderRadius: 80, position: "relative"}}>{props.text}</span>
             {
                 <CSSTransition
                 in={open}
