@@ -4,7 +4,6 @@ import ImageIntroduce from "./components/ImageIntroduce";
 import IntroduceCompany from "./components/IntroduceCompany";
 import Navigation from "./components/Navigation";
 import Head from "next/head";
-// import ChatMessenger from "./components/ChatMessenger";
 import ProcessWay from "./components/ProcessWay";
 import ListProducts from "./components/ListProducts";
 import SpecificProduct from "./components/SpecificProduct";
@@ -29,7 +28,6 @@ const Home = ({ data }) => {
       <ProcessWay />
       <IntroduceCompany />
       <Footer />
-      {/* <ChatMessenger /> */}
     </div>
   );
 };
