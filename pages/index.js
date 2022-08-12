@@ -35,7 +35,7 @@ const Home = ({ data }) => {
 
 export default Home;
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
   // console.log(context)
   const res = await axios.get(`${SERVER_URL}/api/v1/get/cuacuon`, {responseType: "json"});
   const data = await res.data;
