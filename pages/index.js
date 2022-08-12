@@ -9,6 +9,7 @@ import ListProducts from "./components/ListProducts";
 import SpecificProduct from "./components/SpecificProduct";
 import axios from "axios";
 import { SERVER_URL } from "./_app";
+import WrapperContact from "./components/Contact/WrapperContact";
 
 const Home = ({ data }) => {
   return (
@@ -29,6 +30,7 @@ const Home = ({ data }) => {
       <ProcessWay />
       <IntroduceCompany />
       <Footer />
+      <WrapperContact />
     </div>
   );
 };
