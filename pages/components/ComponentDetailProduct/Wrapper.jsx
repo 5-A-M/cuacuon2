@@ -14,7 +14,7 @@ const Wrapper = (props) => {
     <div className="kjdldjadklajwa" style={{width: "100%", display: "flex", justifyContent: 'center', alignItems: "center"}}>
       <div className="dsjklajklsakslasas" style={{width: "100%", maxWidth: 1280, display: "flex", justifyContent: 'center', alignItems: "center", flexDirection: "column"}}>
         { 
-            !props.is_admin === "true" && !props.is_edit=== "true" &&
+            props.is_admin !== "true" && props.is_edit!== "true" &&
             <Title is_admin={props.is_admin} {...props[0]} />
         }
         {

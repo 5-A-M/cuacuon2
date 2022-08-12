@@ -106,28 +106,55 @@ export const HightLightTitle= (props)=> {
 
 export const ProductInfo= (props)=> {
     const router= useRouter()
-    return (
-        <div onClick={()=> router.push({pathname: `/products/door/${props._id}`, query: {is_admin: props.is_admin || false, is_edit: props.is_edit || false}})} className="djskejakwjapwjqkpa" style={{width: "20%", padding: 12, display: "flex", justifyContent: 'center', alignItems: "center", cursor: "pointer"}}>
-            <div className="jkdjhskdueiokajasa" style={{width: "100%", display: "flex", justifyContent: 'center', alignItems: "center", flexDirection: "column", border: "1px solid #e7e7e7", borderRadius: 5}}>
-                <ImageProductInfo {...props} />
-                <TitleProductInfo {...props} />
-                <ContactProductInfo {...props} />
+    if(props.is_admin === true && props.is_edit=== true) {
+        return (
+            <div onClick={()=> router.push({pathname: `/products/door/${props._id}`, query: {is_admin: props.is_admin || false, is_edit: props.is_edit || false}})} className="djskejakwjapwjqkpa" style={{width: "20%", padding: 12, display: "flex", justifyContent: 'center', alignItems: "center", cursor: "pointer"}}>
+                <div className="jkdjhskdueiokajasa" style={{width: "100%", display: "flex", justifyContent: 'center', alignItems: "center", flexDirection: "column", border: "1px solid #e7e7e7", borderRadius: 5}}>
+                    <ImageProductInfo {...props} />
+                    <TitleProductInfo {...props} />
+                    <ContactProductInfo {...props} />
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
+    else {
+        return (
+            <div onClick={()=> router.push({pathname: `/products/door/${props._id}`})} className="djskejakwjapwjqkpa" style={{width: "20%", padding: 12, display: "flex", justifyContent: 'center', alignItems: "center", cursor: "pointer"}}>
+                <div className="jkdjhskdueiokajasa" style={{width: "100%", display: "flex", justifyContent: 'center', alignItems: "center", flexDirection: "column", border: "1px solid #e7e7e7", borderRadius: 5}}>
+                    <ImageProductInfo {...props} />
+                    <TitleProductInfo {...props} />
+                    <ContactProductInfo {...props} />
+                </div>
+            </div>
+        )
+    }
 }
 
 export const ProductAccessory= (props)=> {
     const router= useRouter()
-    return (
-        <div onClick={()=> router.push({pathname: `/products/accessory/${props._id}`, query: {is_admin: props.is_admin || false, is_edit: props.is_edit || false}})} className="djskejakwjapwjqkpa" style={{width: "20%", padding: 12, display: "flex", justifyContent: 'center', alignItems: "center", cursor: "pointer"}}>
-            <div className="jkdjhskdueiokajasa" style={{width: "100%", display: "flex", justifyContent: 'center', alignItems: "center", flexDirection: "column", border: "1px solid #e7e7e7", borderRadius: 5}}>
-                <ImageProductInfo {...props} />
-                <TitleProductInfo {...props} />
-                <ContactProductInfo {...props} />
+    if(props.is_admin === true && props.is_edit=== true) {
+
+        return (
+            <div onClick={()=> router.push({pathname: `/products/accessory/${props._id}`, query: {is_admin: props.is_admin || false, is_edit: props.is_edit || false}})} className="djskejakwjapwjqkpa" style={{width: "20%", padding: 12, display: "flex", justifyContent: 'center', alignItems: "center", cursor: "pointer"}}>
+                <div className="jkdjhskdueiokajasa" style={{width: "100%", display: "flex", justifyContent: 'center', alignItems: "center", flexDirection: "column", border: "1px solid #e7e7e7", borderRadius: 5}}>
+                    <ImageProductInfo {...props} />
+                    <TitleProductInfo {...props} />
+                    <ContactProductInfo {...props} />
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
+    else {
+        return (
+            <div onClick={()=> router.push({pathname: `/products/accessory/${props._id}`})} className="djskejakwjapwjqkpa" style={{width: "20%", padding: 12, display: "flex", justifyContent: 'center', alignItems: "center", cursor: "pointer"}}>
+                <div className="jkdjhskdueiokajasa" style={{width: "100%", display: "flex", justifyContent: 'center', alignItems: "center", flexDirection: "column", border: "1px solid #e7e7e7", borderRadius: 5}}>
+                    <ImageProductInfo {...props} />
+                    <TitleProductInfo {...props} />
+                    <ContactProductInfo {...props} />
+                </div>
+            </div>
+        )
+    }
 }
 
 const ImageProductInfo= (props)=> {

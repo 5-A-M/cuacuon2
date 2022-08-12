@@ -23,6 +23,7 @@ const LoginAdmin = (props) => {
         setL(()=> true)
         // navigate("/admin", {is_login: true})
         sessionStorage.setItem("admin", true)
+        router.push("/admin")
     }
     else {
         setL(()=> false)
@@ -57,7 +58,7 @@ const LoginAdmin = (props) => {
             </button>
           </fieldset>
             {
-                l=== false &&
+              l=== false &&
             <div style={{fontSize: 16, fontWeight: 600}}>Tài khoản học mật khẩu không chính xác</div>
             }
         </div>

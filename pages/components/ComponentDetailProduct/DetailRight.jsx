@@ -209,7 +209,10 @@ const DetailRight = (props) => {
     );
   }
   else {
-    <NotEdit {...props} />
+    return (
+
+      <NotEdit {...props} />
+    )
   }
 };
 
