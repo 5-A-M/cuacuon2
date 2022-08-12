@@ -248,14 +248,14 @@ fieldset {
 }
 
 #wrapper {
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
 }
 
 
 .coccoc-alo-ph-circle {
-  width: 160px;
-  height: 160px;
+  width: 80px;
+  height: 80px;
   top: 20px;
   left: 20px;
   position: absolute;
@@ -278,12 +278,12 @@ fieldset {
 
 .coccoc-alo-phone {
   background-color: transparent;
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
   cursor: pointer;
   z-index: 200000 !important;
-  -webkit-backface-visibility: hidden;
-  -webkit-transform: translateZ(0);
+  /* -webkit-backface-visibility: hidden;
+  -webkit-transform: translateZ(0); */
   -webkit-transition: visibility .5s;
   -moz-transition: visibility .5s;
   -o-transition: visibility .5s;
@@ -300,8 +300,8 @@ fieldset {
 .coccoc-alo-ph-circle-fill {
   width: 100px;
   height: 100px;
-  top: 50px;
-  left: 50px;
+  top: 0;
+  left: 0;
   position: absolute;
   background-color: #000;
   -webkit-border-radius: 100%;
@@ -323,8 +323,8 @@ fieldset {
 .coccoc-alo-ph-img-circle {
   width: 60px;
   height: 60px;
-  top: 70px;
-  left: 70px;
+  top: 20px;
+  left: 20px;
   position: absolute;
   background: rgba(30, 30, 30, 0.1) url(https://drive.google.com/uc?id=1V3N2b79QjDWetC_ss9wI3c-xpWDymn9R) no-repeat center center;
   -webkit-border-radius: 100%;
