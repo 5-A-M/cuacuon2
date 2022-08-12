@@ -7,6 +7,9 @@ const Price = (props) => {
   return (
     <>
       <Head>
+        <meta content="origin" name="referrer" />
+        <meta name="description" content={"Đăng ký nhận báo giá"} />
+        <meta name="keywords" content="mua, báo giá" />
         <title>
           Đăng ký nhận báo giá
         </title>

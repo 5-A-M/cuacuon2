@@ -7,6 +7,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import axios from "axios";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import { SERVER_URL } from "../_app";
 
 const UploadProducts = (props) => {
   const [category, setCategory] = useState(() => "1");
@@ -31,7 +32,7 @@ const UploadProducts = (props) => {
     const formData = new FormData();
     formData.append("file", file[0].imgDataUrl);
     const res = await axios({
-      url: `http://localhost:4000/api/v2/upload`,
+      url: `${SERVER_URL}/api/v2/upload`,
       method: "POST",
       responseType: "json",
       headers: {
@@ -41,7 +42,7 @@ const UploadProducts = (props) => {
     });
     const result = await res.data;
     const res2 = await axios({
-      url: `http://localhost:4000/api/v2/info/cuacuon`,
+      url: `${SERVER_URL}/api/v2/info/cuacuon`,
       method: "POST",
       responseType: "json",
       data: {
@@ -77,7 +78,7 @@ const UploadProducts = (props) => {
     const formData = new FormData();
     formData.append("file", file[0].imgDataUrl);
     const res = await axios({
-      url: `http://localhost:4000/api/v2/upload`,
+      url: `${SERVER_URL}/api/v2/upload`,
       method: "POST",
       responseType: "json",
       headers: {
@@ -87,7 +88,7 @@ const UploadProducts = (props) => {
     });
     const result = await res.data;
     const res2 = await axios({
-      url: `http://localhost:4000/api/v2/info/phukien`,
+      url: `${SERVER_URL}/api/v2/info/phukien`,
       method: "POST",
       responseType: "json",
       data: {
@@ -101,6 +102,7 @@ const UploadProducts = (props) => {
         lockBody,
         photo: result.secure_url,
         category,
+        price
       },
     });
     const result2 = await res2.data;

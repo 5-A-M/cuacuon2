@@ -11,7 +11,6 @@ import { useRouter } from "next/router";
 const ManageProducts = (props) => {
   const router = useRouter();
   useEffect(() => {
-    console.log(sessionStorage.getItem("admin"));
     if (sessionStorage.getItem("admin") !== "true") {
       router.push("/admin/login");
     }

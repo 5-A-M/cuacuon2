@@ -12,6 +12,11 @@ const Admin = (props) => {
       router.push("/admin/login")
     }
   }, [router])
+  useEffect(() => {
+    if (sessionStorage.getItem("admin") === "true") {
+      router.push("/admin/manage-products");
+    }
+  }, [router]);
   return (
     <div className="fhsdukruilsjalxas">
       <Head>
