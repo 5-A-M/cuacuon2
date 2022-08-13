@@ -2,10 +2,10 @@ import * as React from "react";
 import { DialogMain } from "./PopupContact";
 
 export default function AlertDialogSlide2() {
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = React.useState(true);
     React.useEffect(()=> {
         setTimeout(()=> {
-            setOpen(()=> true)
+          setOpen(()=> true)
         }, 3000)
     }, [])
     // const handleClickOpen = () => {
