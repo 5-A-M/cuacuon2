@@ -4,7 +4,7 @@ import MessengerCustomerChat from 'react-messenger-customer-chat'
 const ContactWithMessenger = (props) => {
   return (
     <div className="dsjklajsasasa">
-        <MessengerCustomerChat pageId={"105347645159096"} appId={"753624662360428"}  />
+        <MessengerCustomerChat htmlRef={<div>Hello World</div>} pageId={"105347645159096"} appId={"753624662360428"}  />
     </div>
   )
 }
