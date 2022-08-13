@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Fragment, useEffect } from "react";
+import { Fragment, useEffect, useState } from "react";
 import BreakLine from "../components/BreakLine";
 import Navigation from "../components/ComponentForAdmin/Navigation";
 import Title from "../components/ComponentForAdmin/Title";
@@ -10,6 +10,7 @@ import { useRouter } from "next/router";
 
 const ManageProducts = (props) => {
   const router = useRouter();
+  const [loading, setLoading]= useState(()=> false)
   useEffect(() => {
     if (sessionStorage.getItem("admin") !== "true") {
       router.push("/admin/login");
@@ -43,7 +44,7 @@ const ManageProducts = (props) => {
               {...item}
             />
           ))}
-          {props?.data1?.length <= 0 && "Không có sản phẩm"}
+          {props?.data1?.length <= 0 && "Không có sản phẩm nào"}
         </div>
         <BreakLine />
         <div style={{ width: "100%" }}>Danh sách cửa luxury</div>
@@ -60,7 +61,7 @@ const ManageProducts = (props) => {
           {props?.data2?.map((item, key) => (
             <ProductInfo
               is_admin={true}
-              id_edit={true}
+              is_edit={true}
               key={key}
               width={"20%"}
               {...item}
@@ -83,6 +84,7 @@ const ManageProducts = (props) => {
           {props?.data3?.map((item, key) => (
             <ProductAccessory
               is_admin={true}
+              is_edit={true}
               key={key}
               width={"20%"}
               {...item}

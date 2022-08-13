@@ -76,7 +76,7 @@ const LoginAdmin = (props) => {
           )}
         </div>
       </div>
-      <div
+      {/* <div
         style={{
           position: "absolute",
           top: 0,
@@ -93,7 +93,7 @@ const LoginAdmin = (props) => {
           alt={"Open"}
           layout={"responsive"}
         />
-      </div>
+      </div> */}
     </Fragment>
   );
 };

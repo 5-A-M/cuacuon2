@@ -12,9 +12,9 @@ const DetailProduct= ({data})=> {
         <Fragment>
             <Head>
                 <meta content="origin" name="referrer" />
-                <meta name="description" content={data[0].name} />
+                <meta name="description" content={data[0]?.name} />
                 <meta name="keywords" content="cửa, cửa cuốn, mua cửa, cửa đẹp" />
-                <title>{data[0].name} {data[0].code}</title>
+                <title>{data[0]?.name} {data[0]?.code}</title>
             </Head>
             <div className="djksajsaiowsjasasa" style={{width: "100%"}}>
                 {

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
 import BreakLine from '../BreakLine'
+import Contact from './Contact'
 import DetailRight from './DetailRight'
 import ImageLeft from './ImageLeft'
 import Title from './Title'
@@ -26,6 +27,8 @@ const Wrapper = (props) => {
           <ImageLeft setInfo={setInfo} {...info} />
           <DetailRight setInfo={setInfo} is_edit={props.is_edit} is_admin={props.is_admin} is_accessory={props.is_accessory} {...info} />
         </div>
+        <BreakLine />
+        <Contact />
       </div>
     </div>
   )

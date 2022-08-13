@@ -3,7 +3,7 @@ import React from "react";
 const ContactZalo = () => {
   return (
     <a
-      href="https://chat.zalo.me/?phone=0388015984"
+      href="https://chat.zalo.me/?phone=0962839883"
       id="linkzalo"
       target="_blank"
       rel="noopener noreferrer"

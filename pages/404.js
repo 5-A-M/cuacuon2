@@ -3,11 +3,11 @@ import Head from "next/head";
 export default function Custom404() {
   return (
     <section className="page_404">
-        <Head>
-            <title>Not found</title>
-            <meta name="description" content="Không tìm thấy trang yêu cầu" />
-            <meta name="keywords" content="404" />
-        </Head>
+      <Head>
+        <title>Not found</title>
+        <meta name="description" content="Không tìm thấy trang yêu cầu" />
+        <meta name="keywords" content="404" />
+      </Head>
       <div className="container">
         <div className="row">
           <div className="col-sm-12 ">

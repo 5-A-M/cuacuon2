@@ -13,7 +13,7 @@ const About = () => {
       </Head>
       <Header />
       <Navigation />
-      <div>Hello World</div>
+      <div style={{width: "100%", display: "flex", justifyContent: "center", alignItems: "center", margin: "16px 0"}}>Giới thiệu về công ty</div>
     </div>
   )
 }

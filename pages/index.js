@@ -10,8 +10,10 @@ import SpecificProduct from "./components/SpecificProduct";
 import axios from "axios";
 import { SERVER_URL } from "./_app";
 import WrapperContact from "./components/Contact/WrapperContact";
+import { lazy, Suspense } from "react";
+const AlertDialogSlide2= lazy(()=> import("./components/ComponentDetailProduct/Popup2"))
 
-const Home = ({ data }) => {
+const Home = ({ data, data2 }) => {
   return (
     <div className="daklajksajse9wea" style={{ width: "100%" }}>
       <Head>
@@ -25,12 +27,17 @@ const Home = ({ data }) => {
       <Header />
       <Navigation />
       <ImageIntroduce />
-      <ListProducts data={data} />
+      <ListProducts data={data} data2={data2} />
       <SpecificProduct data={data} />
       <ProcessWay />
       <IntroduceCompany />
       <Footer />
       <WrapperContact />
+      <div>
+        <Suspense fallback={<div></div>}>
+          <AlertDialogSlide2 />
+        </Suspense>
+      </div>
     </div>
   );
 };
@@ -41,7 +48,9 @@ export async function getStaticProps(context) {
   // console.log(context)
   const res = await axios.get(`${SERVER_URL}/api/v1/get/cuacuon`, {responseType: "json"});
   const data = await res.data;
+  const res2= await axios.get(`${SERVER_URL}/api/v1/get/cuacuon/luxury`, {responseType: "json"})
+  const data2= await res2.data
   return {
-    props: { data },
+    props: { data, data2},
   };
 }

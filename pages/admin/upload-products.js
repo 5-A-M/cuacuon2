@@ -8,6 +8,7 @@ import axios from "axios";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { SERVER_URL } from "../_app";
+import { Backdrop, CircularProgress } from "@mui/material";
 
 const UploadProducts = (props) => {
   const [category, setCategory] = useState(() => "1");
@@ -28,7 +29,9 @@ const UploadProducts = (props) => {
   const [lock, setLock] = useState(() => "");
   const [hinge, setHinge] = useState(() => "");
   const [price, setPrice] = useState(() => "");
+  const [loading, setLoading] = useState(() => false);
   const uploadCuacuon = async () => {
+    setLoading(() => true);
     const formData = new FormData();
     formData.append("file", file[0].imgDataUrl);
     const res = await axios({
@@ -66,7 +69,8 @@ const UploadProducts = (props) => {
       },
     });
     const result2 = await res2.data;
-    return console.log(result2);
+    setLoading(() => false);
+    return router.push("/admin/manage-products");
   };
   const [type, setType] = useState(() => "");
   const [color, setColor] = useState(() => "");
@@ -74,7 +78,9 @@ const UploadProducts = (props) => {
   const [material, setMaterial] = useState(() => "");
   const [handCover, setHandCover] = useState(() => "");
   const [lockBody, setLockBody] = useState(() => "");
+  //
   const uploadPhukien = async () => {
+    setLoading(() => true);
     const formData = new FormData();
     formData.append("file", file[0].imgDataUrl);
     const res = await axios({
@@ -102,22 +108,28 @@ const UploadProducts = (props) => {
         lockBody,
         photo: result.secure_url,
         category,
-        price
+        price,
       },
     });
     const result2 = await res2.data;
-    return console.log(result2);
+    setLoading(() => false);
+    return router.push("/admin/manage-products");
   };
   const [postDoor, setPostDoor] = useState(() => true);
   const router = useRouter();
   useEffect(() => {
-    console.log(sessionStorage.getItem("admin"));
     if (sessionStorage.getItem("admin") !== "true") {
       router.push("/admin/login");
     }
   }, [router]);
   return (
     <Fragment>
+      <Backdrop
+        sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={loading}
+      >
+        <CircularProgress color="inherit" />
+      </Backdrop>
       <Head>
         <title>Đăng sản phẩm</title>
       </Head>
@@ -148,7 +160,7 @@ const UploadProducts = (props) => {
             Phụ kiện cửa
           </option>
         </select>
-        <div style={{ margin: "16px 0", fontSize: 24 }}>
+        {/* <div style={{ margin: "16px 0", fontSize: 24 }}>
           {postDoor === true
             ? "Đăng sản phẩm cửa cuốn"
             : "Đăng sản phẩm phụ kiện"}{" "}
@@ -158,6 +170,9 @@ const UploadProducts = (props) => {
           >
             Đổi
           </span>
+        </div> */}
+        <div style={{ margin: "16px 0", fontSize: 24, fontWeight: 600 }}>
+          Chọn ảnh
         </div>
         <UploadImage
           file={file}
@@ -272,7 +287,7 @@ const UploadProducts = (props) => {
               setValue={setPrice}
               title="Giá"
             />
-            <Button uploadCuacuon={uploadCuacuon} />
+            <Button file={file} uploadCuacuon={uploadCuacuon} />
           </>
         )}
         {category === 3 && (
@@ -340,7 +355,7 @@ const UploadProducts = (props) => {
               setValue={setPrice}
               title="Giá"
             />
-            <Button uploadCuacuon={uploadPhukien} />
+            <Button file={file} uploadCuacuon={uploadPhukien} />
           </>
         )}
       </div>
@@ -434,6 +449,7 @@ const UploadImage = (props) => {
               alignItems: "center",
             }}
           >
+            {/* eslint-disable-next-line */}
             <img
               alt="open"
               src={item.imgDataUrl}
@@ -499,7 +515,7 @@ const Input = (props) => {
       <input
         style={{
           height: 50,
-          width: 300,
+          width: "100%",
           fontSize: 18,
           borderRadius: 10,
           border: "1px solid #000",
@@ -516,26 +532,49 @@ const Input = (props) => {
 };
 
 const Button = (props) => {
-  return (
-    <div
-      onClick={() => props.uploadCuacuon()}
-      className="kaslaskolaskasawaw"
-      style={{
-        padding: "10px 30px",
-        borderRadius: 80,
-        background: "#2e89ff",
-        color: "#fff",
-        fontSize: 18,
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        margin: 16,
-        cursor: "pointer",
-      }}
-    >
-      Đăng sản phẩm
-    </div>
-  );
+  if (props.file.length > 0) {
+    return (
+      <div
+        onClick={() => props.uploadCuacuon()}
+        className="kaslaskolaskasawaw"
+        style={{
+          padding: "10px 30px",
+          borderRadius: 80,
+          background: "#2e89ff",
+          color: "#fff",
+          fontSize: 18,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          margin: 16,
+          cursor: "pointer",
+        }}
+      >
+        Đăng sản phẩm
+      </div>
+    );
+  } else {
+    return (
+      <div
+        className="kaslaskolaskasawaw"
+        style={{
+          padding: "10px 30px",
+          borderRadius: 80,
+          background: "#2e89ff",
+          color: "#fff",
+          fontSize: 18,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          margin: 16,
+          cursor: "not-allowed",
+          opacity: 0.5,
+        }}
+      >
+        Thiếu dữ liệu
+      </div>
+    );
+  }
 };
 
 export default UploadProducts;

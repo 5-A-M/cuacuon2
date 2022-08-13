@@ -1,8 +1,10 @@
 import axios from "axios";
+import { useRouter } from "next/router";
 import React from "react";
 import { SERVER_URL } from "../../_app";
 
 const DetailRight = (props) => {
+  const router= useRouter()
   if(props.is_admin=== "true" && props.is_edit=== "true") {
     const changeProduct= async ()=> {
       const res= await axios({
@@ -24,7 +26,7 @@ const DetailRight = (props) => {
         }
       })
       const result= await res.data
-      return window.location.reload()
+      return router.push("/admin/manage-products")
     }
     return (
       <div className="dsjkldjhlksajskassa" style={{ width: "50%", padding: 10 }}>
@@ -238,7 +240,7 @@ const NotEdit= (props)=> {
             props.name &&
             <tr>
               <td>Tên sản phẩm</td>
-              <td contentEditable>{props.name}</td>
+              <td>{props.name}</td>
             </tr>
           }
           {/* for accessory */}
