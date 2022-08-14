@@ -1,4 +1,5 @@
 import { Html, Head, Main, NextScript } from "next/document";
+import Script from 'next/script'
 
 export default function Document() {
   return (
@@ -17,6 +18,9 @@ export default function Document() {
       <body className="sajsajsklassd">
         <Main />
         <NextScript />
+        <div id="fb-root"></div>
+        <div id="fb-customer-chat" className="fb-customerchat"></div>
+        <Script src="/js/messenger_sdk.js" strategy="lazyOnload" />
       </body>
     </Html>
   );
