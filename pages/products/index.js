@@ -48,6 +48,10 @@ const Wrapper = (props) => {
 };
 
 export async function getServerSideProps(context) {
+  context.res.setHeader(
+    "Cache-Control",
+    "public, s-maxage=10, stale-while-revalidate=59"
+  );
   // console.log(context)
   const res = await axios({
       url: `${SERVER_URL}/api/v1/get/cuacuon`,

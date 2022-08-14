@@ -203,7 +203,7 @@ export const ProductInfo = (props) => {
   } else {
     return (
       <div
-        onClick={() => router.push({ pathname: `/products/door/${props._id}` })}
+        onClick={() => window.location.href= `/products/door/${props._id}`}
         className="djskejakwjapwjqkpa"
         style={{
           width: "20%",

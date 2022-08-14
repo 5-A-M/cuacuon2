@@ -36,11 +36,10 @@ const Navigation = (props) => {
             open=== true && <nav className="dajisoauiouwjoiqw" style={{width: "100%", height: "100%", justifyContent: "center", alignItems: "center",display: "flex", gap: 30}}>
             {
                 array_navigation.map((item, key)=> 
-                <Link key={key} href={item.link}>
-                    <a className="akjslakslfkosdkas">
+                    <a key={key} href={item.link} className="akjslakslfkosdkas">
                         <ContentLink index={parseInt(key) + 1} router={router} {...item} />
                     </a>
-                </Link>)
+                )
             }
         </nav>
         }
